@@ -3,10 +3,13 @@
     color: white;
 }
 
+.row.auto {
+    width: auto;
+}
 .row {
     display: flex;
     align-items: flex-end;
-    width: auto;
+    width: 100%;
 }
 
 .col.smol {
