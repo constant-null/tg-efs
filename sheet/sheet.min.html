@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>.fill{background-color:#cd071e;color:#fff}.col,.row{display:flex}.row{align-items:flex-end;width:auto}.col.auto,.col.smol{width:3em;margin-right:.5em}.col.auto{width:100%}.col{width:fit-content;block-size:fit-content;padding:.3em;border-bottom:solid .3em #cd071e;vertical-align:bottom}.field{background-color:#fff;border:0;width:100%}</style>
+</head>
+<div class="row">
+  <div class="col fill">Имя</div>
+  <div class="col auto"><input class="field" type="text"/></div>
+</div>
+<br/>
+<div class="row">
+  <div class="row">
+    <div class="col fill">Происхождение</div>
+    <div class="col auto"><input class="field" type="text"/></div>
+  </div>
+  <div class="row">
+    <div class="col fill">Класс</div>
+    <div class="col auto"><input class="field" type="text"/></div>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="row">
+    <div class="col fill">Организация</div>
+    <div class="col auto"><input class="field" type="text"/></div>
+  </div>
+  <div class="row">
+    <div class="col fill">Ранг</div>
+    <div class="col smol"><input class="field" type="text"/></div>
+  </div>
+  <div class="row">
+    <div class="col fill">Слава</div>
+    <div class="col smol"><input class="field" type="text"/></div>
+  </div>
+</div>
+<script>console.log(window.Telegram.WebApp.initData),fetch("/test?"+window.Telegram.WebApp.initData).then((e=>console.log(e)));</script>
+</html>
