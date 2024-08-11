@@ -27,8 +27,8 @@ func main() {
 
 func menu(c fiber.Ctx) error {
 	c.Set("Content-type", "text/html; charset=utf-8")
-	c.WriteString(menuTpl)
-	return nil
+
+	return c.SendFile("sheet/sheet.min.html")
 }
 
 func test(c fiber.Ctx) error {
