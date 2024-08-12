@@ -23,7 +23,7 @@ func (s *LocalStorage) Store(ctx context.Context, id int64, data []byte) error {
 func (s *LocalStorage) Get(ctx context.Context, id int64) ([]byte, error) {
 	data, ok := s.data[id]
 	if !ok {
-		return nil, errors.Errorf("unable to find record with id: %s", id)
+		return nil, errors.Errorf("unable to find record with id: %d", id)
 	}
 
 	return data, nil
