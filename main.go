@@ -94,7 +94,7 @@ func main() {
 	//app.Use(checkHash)
 
 	app.Use(cors.New(cors.Config{AllowOrigins: []string{"*"}}))
-	app.Get("/,enu", getSheet)
+	app.Get("/menu", getSheet)
 	app.Get("/sheet", getSheet)
 	app.Get("/sheet_data", getSheetData)
 	app.Post("/sheet_data", updateSheetData)
