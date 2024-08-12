@@ -6,6 +6,6 @@ for (let i = 0; i < appChoices.length; i++) {
         const dropbtn = e.currentTarget.parentElement.parentElement.querySelector('.dropbtn');
         dropbtn.firstChild.data = 'к'+choice;
         const approachInput = e.currentTarget.parentElement.parentElement.querySelector('input');
-        approachInput.value = choice;
+        approachInput.value = 'к'+choice;
     })
 }

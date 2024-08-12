@@ -6,37 +6,37 @@
     <link inline rel="stylesheet" href="dropdown.css">
 </head>
 <body>
-<form action="/sheet">
+<form id="sheet-form">
     <div>
         <div class="row">
             <div class="col fill">Имя</div>
-            <div class="col auto"><input class="field" type="text"/></div>
+            <div class="col auto"><input name="name" data-bind="value" class="field" type="text"/></div>
         </div>
         <br/>
         <div class="row">
             <div class="row">
                 <div class="col fill">Происхождение</div>
-                <div class="col auto"><input class="field" type="text"/></div>
+                <div class="col auto"><input name="background" data-bind="value" class="field" type="text"/></div>
             </div>
             <div class="row">
                 <div class="col fill">Класс</div>
-                <div class="col auto"><input class="field" type="text"/></div>
+                <div class="col auto"><input name="class" data-bind="value" class="field" type="text"/></div>
             </div>
         </div>
         <br/>
         <div class="row">
             <div class="row">
                 <div class="col fill">Организация</div>
-                <div class="col auto"><input class="field" type="text"/></div>
+                <div class="col auto"><input name="organization" data-bind="value" class="field" type="text"/></div>
             </div>
             <div class="row auto">
                 <div class="row">
                     <div class="col fill">Ранг</div>
-                    <div class="col smol"><input class="field" type="text"/></div>
+                    <div class="col smol"><input name="rank" data-bind="value" class="field" type="text"/></div>
                 </div>
                 <div class="row">
                     <div class="col fill">Слава</div>
-                    <div class="col smol"><input class="field" type="text"/></div>
+                    <div class="col smol"><input name="fame" data-bind="value" class="field" type="text"/></div>
                 </div>
             </div>
         </div>
@@ -45,8 +45,8 @@
         <div class="approach-container">
             <img class="approach" inline src="svg/approach-border.svg"/>
             <div class="dropdown">
-                <button class="dropbtn">к4</button>
-                <input name="brutal" type="text" value="4" hidden/>
+                <button name="brutal" class="dropbtn" data-bind="data">к4</button>
+                <input name="brutal" type="text" data-bind="value" value="4" hidden/>
                 <div class="dropdown-content">
                     <a class="approach-choice" data-choice="4" href="#">к4</a>
                     <a class="approach-choice" data-choice="6" href="#">к6</a>
@@ -55,12 +55,13 @@
                     <a class="approach-choice" data-choice="12" href="#">к12</a>
                 </div>
             </div>
+            <span class="approach-label">Брут.</span>
         </div>
         <div class="approach-container">
             <img class="approach" inline src="svg/approach-border.svg"/>
             <div class="dropdown">
-                <button class="dropbtn">к4</button>
-                <input name="skillful" type="text" value="4" hidden/>
+                <button name="skillful" data-bind="data" class="dropbtn">к4</button>
+                <input name="skillful" data-bind="value" type="text" value="4" hidden/>
                 <div class="dropdown-content">
                     <a class="approach-choice" data-choice="4" href="#">к4</a>
                     <a class="approach-choice" data-choice="6" href="#">к6</a>
@@ -69,12 +70,13 @@
                     <a class="approach-choice" data-choice="12" href="#">к12</a>
                 </div>
             </div>
+            <span class="approach-label">Снор.</span>
         </div>
         <div class="approach-container">
             <img class="approach" inline src="svg/approach-border.svg"/>
             <div class="dropdown">
-                <button class="dropbtn">к4</button>
-                <input name="smart" type="text" value="4" hidden/>
+                <button name="smart" class="dropbtn" data-bind="data">к4</button>
+                <input name="smart" data-bind="value" type="text" value="4" hidden/>
                 <div class="dropdown-content">
                     <a class="approach-choice" data-choice="4" href="#">к4</a>
                     <a class="approach-choice" data-choice="6" href="#">к6</a>
@@ -83,12 +85,13 @@
                     <a class="approach-choice" data-choice="12" href="#">к12</a>
                 </div>
             </div>
+            <span class="approach-label">Мозг.</span>
         </div>
         <div class="approach-container">
             <img class="approach" inline src="svg/approach-border.svg"/>
             <div class="dropdown">
-                <button class="dropbtn">к4</button>
-                <input name="charismatic" type="text" value="4" hidden/>
+                <button name="charismatic" class="dropbtn" data-bind="data">к4</button>
+                <input name="charismatic" data-bind="value" type="text" value="4" hidden/>
                 <div class="dropdown-content">
                     <a class="approach-choice" data-choice="4" href="#">к4</a>
                     <a class="approach-choice" data-choice="6" href="#">к6</a>
@@ -97,6 +100,7 @@
                     <a class="approach-choice" data-choice="12" href="#">к12</a>
                 </div>
             </div>
+            <span class="approach-label">Хар.</span>
         </div>
     </div>
     <input type="submit">

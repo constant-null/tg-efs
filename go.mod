@@ -2,7 +2,12 @@ module github.com/constant-null/tg-efs
 
 go 1.22.1
 
-require github.com/kataras/iris/v12 v12.2.11
+require (
+	github.com/gofiber/fiber/v3 v3.0.0-beta.3
+	github.com/kataras/iris/v12 v12.2.11
+	github.com/pkg/errors v0.8.1
+	github.com/valyala/fastjson v1.6.4
+)
 
 require (
 	github.com/BurntSushi/toml v1.4.0 // indirect
@@ -14,7 +19,6 @@ require (
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/flosch/pongo2/v4 v4.0.2 // indirect
-	github.com/gofiber/fiber/v3 v3.0.0-beta.3 // indirect
 	github.com/gofiber/utils/v2 v2.0.0-beta.6 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/gomarkdown/markdown v0.0.0-20240730141124-034f12af3bf6 // indirect
@@ -40,7 +44,6 @@ require (
 	github.com/tdewolff/parse/v2 v2.7.15 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.55.0 // indirect
-	github.com/valyala/fastjson v1.6.4 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
