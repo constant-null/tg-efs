@@ -1,6 +1,6 @@
 const elements = {}
 init()
-fetch('http://127.0.0.1:8080/sheet_data?'+window.Telegram.WebApp.initData).then(
+fetch('/sheet_data?'+window.Telegram.WebApp.initData).then(
    async  (r) => fill(await r.json())
 )
 
@@ -10,7 +10,7 @@ document.querySelector("#sheet-form").addEventListener("submit", (e) => {
     let formData = new FormData(e.target);
     let object = {};
     formData.forEach((value, key) => object[key] = value);
-    fetch('http://127.0.0.1:8080/sheet_data', {
+    fetch('/sheet_data', {
         method: 'POST',
         body: JSON.stringify(object),
         headers: {
