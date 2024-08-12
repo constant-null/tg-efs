@@ -8,6 +8,16 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
+type InlineQueryButton struct {
+	Text   string              `json:"text"`
+	WebApp tgbotapi.WebAppInfo `json:"web_app"`
+}
+
+type InlineQueryAnswerWithButton struct {
+	tgbotapi.InlineConfig
+	Button InlineQueryButton `json:"button"`
+}
+
 const TestAPIEndpoint = "https://api.telegram.org/bot%s/test/%s"
 
 func runTGBot() {
@@ -32,18 +42,31 @@ func runTGBot() {
 	updates := bot.GetUpdatesChan(u)
 
 	for update := range updates {
+		if update.InlineQuery != nil {
+			params := make(tgbotapi.Params)
+
+			params["inline_query_id"] = update.InlineQuery.ID
+			params.AddNonZero("cache_time", 0)
+			params.AddInterface("button", InlineQueryButton{
+				Text:   "Лист персонажа",
+				WebApp: tgbotapi.WebAppInfo{"http://127.0.0.1:8080/sheet"},
+			})
+			params.AddInterface("results", []interface{}{
+				tgbotapi.NewInlineQueryResultCachedPhoto("1", "AgACAgIAAxkBAAMcZrpqn0hJ52L6JOxRTssoMdz_fXwAAqmnMRtOAAHRSd-rUD-IFhl6AQADAgADbQADNQQ"),
+				tgbotapi.NewInlineQueryResultCachedPhoto("2", "AgACAgIAAxkBAAMcZrpqn0hJ52L6JOxRTssoMdz_fXwAAqmnMRtOAAHRSd-rUD-IFhl6AQADAgADbQADNQQ"),
+				tgbotapi.NewInlineQueryResultCachedPhoto("3", "AgACAgIAAxkBAAMcZrpqn0hJ52L6JOxRTssoMdz_fXwAAqmnMRtOAAHRSd-rUD-IFhl6AQADAgADbQADNQQ"),
+				tgbotapi.NewInlineQueryResultCachedPhoto("4", "AgACAgIAAxkBAAMcZrpqn0hJ52L6JOxRTssoMdz_fXwAAqmnMRtOAAHRSd-rUD-IFhl6AQADAgADbQADNQQ"),
+				tgbotapi.NewInlineQueryResultCachedPhoto("5", "AgACAgIAAxkBAAMcZrpqn0hJ52L6JOxRTssoMdz_fXwAAqmnMRtOAAHRSd-rUD-IFhl6AQADAgADbQADNQQ"),
+			})
+
+			if _, err := bot.MakeRequest("answerInlineQuery", params); err != nil {
+				log.Println(err)
+			}
+			continue
+		}
 		if update.Message != nil { // If we got a message
 			log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
-			msg := tgbotapi.MessageConfig{
-				BaseChat: tgbotapi.BaseChat{
-					ChatID:           update.Message.Chat.ID,
-					ReplyToMessageID: update.Message.MessageID,
-				},
-				Text:                  update.Message.Text,
-				DisableWebPagePreview: false,
-				ParseMode:             "HTML",
-			}
-			bot.Send(msg)
+
 		}
 	}
 }
